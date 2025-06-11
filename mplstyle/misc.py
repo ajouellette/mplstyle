@@ -24,7 +24,7 @@ def plot_corr_matrix(corr, cmap=plt.cm.RdBu_r, trunc_cmap=True, cov=False, **ims
     """
     if cov:
         std = np.sqrt(np.diag(corr))
-        corr /= np.outer(std, std)
+        corr = corr / np.outer(std, std)
 
     cmap_min = 0.5 * (1 - np.min(corr)) + np.min(corr)
     if trunc_cmap:
